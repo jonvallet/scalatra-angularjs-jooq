@@ -30,7 +30,9 @@ object ScalatraAngularWebAppBuild extends Build {
         "org.eclipse.jetty" % "jetty-webapp" % "9.2.10.v20150310" % "container",
         "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided",
         "org.scalatra" %% "scalatra-json" % ScalatraVersion,
-        "org.json4s" %% "json4s-jackson" % "3.3.0"
+        "org.json4s" %% "json4s-jackson" % "3.3.0",
+        "org.webjars" % "angularjs" % "1.4.7",
+        "org.webjars" % "bootstrap" % "3.3.5"
       ),
       scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>
         Seq(
