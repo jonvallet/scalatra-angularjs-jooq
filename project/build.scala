@@ -24,7 +24,6 @@ object ScalatraAngularWebAppBuild extends Build {
       resolvers += "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases",
       libraryDependencies ++= Seq(
         "org.scalatra" %% "scalatra" % ScalatraVersion,
-        "org.scalatra" %% "scalatra-scalate" % ScalatraVersion,
         "org.scalatra" %% "scalatra-specs2" % ScalatraVersion % "test",
         "ch.qos.logback" % "logback-classic" % "1.1.2" % "runtime",
         "org.eclipse.jetty" % "jetty-webapp" % "9.2.10.v20150310" % "container",
