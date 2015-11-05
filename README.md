@@ -1,5 +1,6 @@
 # Scalatra Angular Web App #
-
+This is an sample project that uses scalatra as the backend for an angularjs
+frontend web application.
 ## Build & Run ##
 
 ```sh

@@ -15,8 +15,7 @@ class MyScalatraServlet extends ScalatraServlet with JacksonJsonSupport {
 
   get("/api/info") {
     Map("Name"->"Scalatra Service",
-        "Version"->"0.1",
-        "Build Time"-> new Date())
+        "Version"->"0.1")
  }
 
 
