@@ -1,5 +1,4 @@
-![Build Status](https://travis-ci.org/jonvallet/scalatra-angularjs-jooq.svg?branch=master)](https://travis-ci.org/jonvallet/scalatra-angularjs-jooq)
-
+[![Build Status](https://travis-ci.org/jonvallet/scalatra-angularjs-jooq.svg?branch=master)](https://travis-ci.org/jonvallet/scalatra-angularjs-jooq)
 # Scalatra Angular Web App #
 This is an sample project that uses scalatra as the backend for an angularjs
 frontend web application.
