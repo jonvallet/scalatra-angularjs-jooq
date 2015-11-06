@@ -5,7 +5,7 @@ frontend web application.
 ## Build & Run ##
 
 ```sh
-$ cd Scalatra_Angular_Web_App
+$ cd scalatra-angularjs-jooq
 $ ./sbt
 > container:start
 > browse
