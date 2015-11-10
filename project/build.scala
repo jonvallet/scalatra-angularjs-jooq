@@ -31,20 +31,12 @@ object ScalatraAngularWebAppBuild extends Build {
         "org.scalatra" %% "scalatra-json" % ScalatraVersion,
         "org.json4s" %% "json4s-jackson" % "3.3.0",
         "org.webjars" % "angularjs" % "1.4.7",
-        "org.webjars" % "bootstrap" % "3.3.5"
-      ),
-      scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>
-        Seq(
-          TemplateConfig(
-            base / "webapp" / "WEB-INF" / "templates",
-            Seq.empty,  /* default imports should be added here */
-            Seq(
-              Binding("context", "_root_.org.scalatra.scalate.ScalatraRenderContext", importMembers = true, isImplicit = true)
-            ),  /* add extra bindings here */
-            Some("templates")
-          )
-        )
-      }
+        "org.webjars" % "bootstrap" % "3.3.5",
+        "org.jooq" % "jooq" % "3.7.0",
+        "org.jooq" % "jooq-meta" % "3.7.0",
+        "org.jooq" % "jooq-codegen" % "3.7.0",
+        "org.apache.derby" % "derby" % "10.12.1.1"
+      )
     )
   )
 }
