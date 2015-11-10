@@ -12,6 +12,8 @@ object ScalatraAngularWebAppBuild extends Build {
   val ScalaVersion = "2.11.7"
   val ScalatraVersion = "2.4.0.RC3"
 
+  val generateJOOQClasses = taskKey[Unit]("Create JOOQ classes")
+
   lazy val project = Project (
     "scalatra-angular-web-app",
     file("."),
@@ -36,7 +38,10 @@ object ScalatraAngularWebAppBuild extends Build {
         "org.jooq" % "jooq-meta" % "3.7.0",
         "org.jooq" % "jooq-codegen" % "3.7.0",
         "org.apache.derby" % "derby" % "10.12.1.1"
-      )
+      ),
+      generateJOOQClasses := {
+        println("Generating classes")
+      }
     )
   )
 }
