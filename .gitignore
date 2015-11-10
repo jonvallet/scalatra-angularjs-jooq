@@ -67,3 +67,7 @@ jrebel.lic
 
 # paulp script
 /.lib/
+
+#Derby
+derbyDb/
+derby.log
