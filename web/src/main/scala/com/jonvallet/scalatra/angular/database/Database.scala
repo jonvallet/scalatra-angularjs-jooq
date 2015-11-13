@@ -16,12 +16,7 @@ import org.slf4j.LoggerFactory
  */
 object Database {
   val logger = LoggerFactory.getLogger(getClass)
-  val props = {
-    val p = new Properties()
-    p.put("user", "sa")
-    p.put("password", "")
-    p
-  }
+
   val server = Server.createTcpServer()
 
   def startup = {
@@ -33,11 +28,5 @@ object Database {
     logger.info("Stopping h2 database")
     server.stop()
   }
-  def createConnection : Connection = {
-    val conn = DriverManager.getConnection("jdbc:h2:~/test", props)
 
-    conn.setAutoCommit(false)
-    conn
-  }
-  def createDsl = DSL.using(createConnection, SQLDialect.H2)
 }

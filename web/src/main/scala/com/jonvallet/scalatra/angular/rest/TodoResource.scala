@@ -1,10 +1,10 @@
 package com.jonvallet.scalatra.angular.rest
 
-import com.jonvallet.scalatra.angular.database.Database
+import com.jonvallet.scalatra.angular.database.{DatabaseContext, Database}
 import com.jonvallet.scalatra.angular.database.public_.tables.records.TodoRecord
 import com.jonvallet.scalatra.angular.repository.TodoRepository
 import org.json4s.{DefaultFormats, Formats}
-import org.scalatra.ScalatraServlet
+import org.scalatra.{Ok, ScalatraServlet}
 import org.scalatra.json.JacksonJsonSupport
 import org.slf4j.LoggerFactory
 import org.json4s._
@@ -16,7 +16,7 @@ class TodoResource  extends ScalatraServlet with JacksonJsonSupport {
 
   implicit lazy val jsonFormats: Formats= DefaultFormats
   val logger = LoggerFactory.getLogger(getClass)
-  lazy val repository = new TodoRepository(Database.createDsl)
+  lazy val repository = new TodoRepository(DatabaseContext())
 
   before("/*") {
     contentType = formats("json")
@@ -34,6 +34,7 @@ class TodoResource  extends ScalatraServlet with JacksonJsonSupport {
 //    val record = json.extract[TodoRecord]
 
 //    logger.info(s"Record to save $record")
-    repository.create(new TodoRecord(null,"name", "description", false))
+    val record = repository.create(new TodoRecord(null,"name", "description", false))
+    Ok(record)
   }
 }
