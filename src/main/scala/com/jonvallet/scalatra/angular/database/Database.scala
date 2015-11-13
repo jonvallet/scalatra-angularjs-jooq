@@ -2,6 +2,9 @@ package com.jonvallet.scalatra.angular.database
 
 import java.sql.{SQLException, Connection, DriverManager}
 import java.util.Properties
+import org.jooq.SQLDialect
+import org.jooq.impl.DSL
+
 import scala.io.StdIn.readLine
 
 import org.h2.tools.Server
@@ -13,7 +16,7 @@ import org.slf4j.LoggerFactory
  */
 object Database {
   val logger = LoggerFactory.getLogger(getClass)
-  val props : Properties = {
+  val props = {
     val p = new Properties()
     p.put("user", "sa")
     p.put("password", "")
@@ -36,16 +39,5 @@ object Database {
     conn.setAutoCommit(false)
     conn
   }
-  def createSchema = {
-    val connection = createConnection
-    val s = connection.createStatement()
-    s.execute("create table TODO(id int, name varchar(40), description varchar(255), done boolean)")
-    connection.commit()
-  }
-  def main(args: Array[String]) = {
-    startup
-    println("Press any key to stop database")
-    readLine()
-    shutdown
-  }
+  def createDsl = DSL.using(createConnection, SQLDialect.H2)
 }

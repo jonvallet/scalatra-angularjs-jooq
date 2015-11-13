@@ -9,11 +9,11 @@ import org.scalatra.json.JacksonJsonSupport
 class MyScalatraServlet extends ScalatraServlet with JacksonJsonSupport {
   implicit lazy val jsonFormats: Formats= DefaultFormats
 
-  before("/api/*") {
+  before("/*") {
     contentType = formats("json")
   }
 
-  get("/api/info") {
+  get() {
     Map("Name"->"Scalatra Service",
         "Version"->"0.1")
  }
