@@ -2,7 +2,7 @@ package com.jonvallet.scalatra.angular.rest
 
 import com.jonvallet.scalatra.angular.database.{DatabaseContext, Database}
 import com.jonvallet.scalatra.angular.database.public_.tables.records.TodoRecord
-import com.jonvallet.scalatra.angular.repository.TodoRepository
+import com.jonvallet.scalatra.angular.repository.{TodoCreate, Todo, TodoRepository}
 import org.json4s.{DefaultFormats, Formats}
 import org.scalatra.{Ok, ScalatraServlet}
 import org.scalatra.json.JacksonJsonSupport
@@ -31,10 +31,10 @@ class TodoResource  extends ScalatraServlet with JacksonJsonSupport {
 
     logger.info(s"Trying to save $json")
 
-//    val record = json.extract[TodoRecord]
+    val todo = json.extract[TodoCreate]
 
 //    logger.info(s"Record to save $record")
-    val record = repository.create(new TodoRecord(null,"name", "description", false))
-    Ok(record.intoMap())
+    val record = repository.create(todo)
+    Ok(record)
   }
 }

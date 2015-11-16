@@ -1,12 +1,10 @@
 package com.jonvallet.scalatra.angular.repository
 
 
-import com.jonvallet.scalatra.angular.database.{DatabaseContext, Database}
+import com.jonvallet.scalatra.angular.database.DatabaseContext
 import com.jonvallet.scalatra.angular.database.public_.Tables.TODO
-import com.jonvallet.scalatra.angular.database.public_.tables.records.TodoRecord
-import org.jooq.DSLContext
-import org.jooq.impl.DSL
-import collection.JavaConversions._
+
+import scala.collection.JavaConversions._
 import org.jooq.scala.Conversions._
 
 /**
@@ -23,12 +21,13 @@ class TodoRepository(ctx : DatabaseContext) {
     result.toList
   }
 
-  def create(record: TodoRecord): TodoRecord= {
-    val newRecord = ctx.create.newRecord(TODO, record)
+  def create(todo: TodoCreate): Integer = {
+    val newRecord = ctx.create.newRecord(TODO, todo)
     newRecord.store()
     ctx.commit
-    newRecord
+    newRecord.getId
   }
 }
 
-case class Todo (id: Long, name: String, description: String, done: Boolean)
+case class Todo (id: Integer, name: String, description: String, done: Boolean)
+case class TodoCreate(name: String, description: String, done: Boolean)
