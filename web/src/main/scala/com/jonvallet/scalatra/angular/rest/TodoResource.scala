@@ -23,7 +23,7 @@ class TodoResource  extends ScalatraServlet with JacksonJsonSupport {
   }
 
   get() {
-    repository.list()
+     repository.list()
   }
 
   post() {
@@ -35,6 +35,6 @@ class TodoResource  extends ScalatraServlet with JacksonJsonSupport {
 
 //    logger.info(s"Record to save $record")
     val record = repository.create(new TodoRecord(null,"name", "description", false))
-    Ok(record)
+    Ok(record.intoMap())
   }
 }

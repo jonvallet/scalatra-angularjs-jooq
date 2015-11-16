@@ -7,8 +7,6 @@ val Version = "0.1.0-SNAPSHOT"
 val ScalaVersion = "2.11.7"
 val ScalatraVersion = "2.4.0.RC3"
 
-
-
 lazy val model = project.
   settings(
     libraryDependencies ++= Seq(
@@ -36,15 +34,12 @@ lazy val web = project
         "org.json4s" %% "json4s-jackson" % "3.3.0",
         "org.webjars" % "angularjs" % "1.4.7",
         "org.webjars" % "bootstrap" % "3.3.5",
-        "org.jooq" % "jooq" % "3.3.1",
-        "org.jooq" % "jooq-meta" % "3.3.1",
-        "org.jooq" % "jooq-codegen" % "3.3.1"
+        "org.jooq" % "jooq" % "3.7.1",
+        "org.jooq" % "jooq-meta" % "3.7.1",
+        "org.jooq" % "jooq-codegen" % "3.7.1",
+        "org.jooq" % "jooq-scala" % "3.7.1"
 
       )
     )
   )
-
-
-
-
 
