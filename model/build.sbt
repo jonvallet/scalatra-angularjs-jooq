@@ -9,3 +9,10 @@ flywayUser := "sa"
 
 libraryDependencies += "com.h2database" % "h2" % "1.4.190"
 
+val stage = taskKey[Unit]("Stage task")
+
+val Stage = config("stage")
+
+stage := {
+  flywayMigrate.value
+}
