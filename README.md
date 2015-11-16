@@ -3,9 +3,20 @@
 This is a sample project that uses scalatra as the backend for an angularjs
 frontend web application.
 ## Build & Run ##
+First, cd to the root of the project
 
 ```sh
 $ cd scalatra-angularjs-jooq
+```
+
+If this your first time, you will need to create the database schema first.
+
+```sh
+$ ./sbt flywayMigrate
+```
+
+Now, start the server container
+```sh
 $ ./sbt
 > container:start
 > browse
