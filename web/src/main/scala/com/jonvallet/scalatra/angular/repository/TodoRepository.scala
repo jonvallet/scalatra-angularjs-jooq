@@ -21,10 +21,10 @@ class TodoRepository(ctx : DatabaseContext) {
     result.toList
   }
 
-  def create(todo: TodoCreate): Integer = {
+  def create(todo: TodoCreate): Todo = {
     val newRecord = ctx.create.newRecord(TODO, todo)
     newRecord.store()
-    newRecord.getId
+    Todo(newRecord.getId, newRecord.getName, newRecord.getDescription, newRecord.getDone)
   }
 }
 
