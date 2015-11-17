@@ -9,6 +9,7 @@ val ScalatraVersion = "2.4.0.RC3"
 
 lazy val model = project.
   settings(
+    scalaVersion := ScalaVersion,
     libraryDependencies ++= Seq(
       "org.jooq" % "jooq-codegen" % "3.3.1",
       "com.h2database" % "h2" % "1.4.190"
@@ -16,6 +17,7 @@ lazy val model = project.
   )
 
 lazy val web = project
+  .dependsOn(model)
   .settings(
     ScalatraPlugin.scalatraSettings ++ Seq(
       organization := Organization,

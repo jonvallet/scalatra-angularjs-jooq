@@ -12,3 +12,6 @@ jooqOptions := Seq("jdbc.driver" -> "org.h2.Driver",
                     "jdbc.password" -> password,
                     "generator.database.name" -> "org.jooq.util.h2.H2Database",
                     "generator.target.packageName" -> "com.jonvallet.scalatra.angular.database")
+
+jooqVersion := "3.7.1"
+
