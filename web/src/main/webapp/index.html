@@ -1,12 +1,56 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en" ng-app="todoApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Todo Sample</title>
 
-<h1>Index</h1>
+    <!-- Bootstrap -->
+    <link href="webjars/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-controller="TodoCtrl">
 
-<p>My first paragraph.</p>
+<div class="container">
+    <h1>Todo List!</h1>
 
-<p>This is a test, lol, paragraph.</p>
+    <form class="form-inline" ng-submit="new()">
+        <div class="form-group">
+            <label for="inputName">Name</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Name" ng-model="newTodo.name">
+        </div>
+        <div class="form-group">
+            <label for="inputDescription">Description</label>
+            <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="newTodo.description">
+        </div>
+        <button type="submit" class="btn bnt-default">New</button>
+    </form>
 
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Done</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="todo in todos">
+            <th>{{todo.id}}</th>
+            <th>{{todo.name}}</th>
+            <th>{{todo.description}}</th>
+            <th><input type="checkbox" ng-model="todo.done"></th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="webjars/angularjs/1.4.7/angular.js"></script>
+<script src="js/controllers.js"></script>
 </body>
 </html>
