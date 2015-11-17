@@ -24,7 +24,6 @@ class TodoRepository(ctx : DatabaseContext) {
   def create(todo: TodoCreate): Integer = {
     val newRecord = ctx.create.newRecord(TODO, todo)
     newRecord.store()
-    ctx.commit
     newRecord.getId
   }
 }
