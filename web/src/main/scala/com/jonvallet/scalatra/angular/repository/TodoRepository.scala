@@ -2,7 +2,7 @@ package com.jonvallet.scalatra.angular.repository
 
 
 import com.jonvallet.scalatra.angular.database.DatabaseContext
-import com.jonvallet.scalatra.angular.database.public_.tables.Todo._
+import com.jonvallet.scalatra.angular.database.generated.tables.Todo._
 
 import scala.collection.JavaConversions._
 import org.jooq.scala.Conversions._
