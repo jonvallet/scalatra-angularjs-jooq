@@ -34,6 +34,7 @@
             <th>Name</th>
             <th>Description</th>
             <th>Done</th>
+            <th>Remove</th>
         </tr>
         </thead>
         <tbody>
@@ -42,6 +43,11 @@
             <th>{{todo.name}}</th>
             <th>{{todo.description}}</th>
             <th><input type="checkbox" ng-model="todo.done" ng-change="updateDone(todo)"></th>
+            <th>
+                <button type="button" class="btn btn-default" adleria-label="Delete" ng-click="remove(todo)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </th>
         </tr>
         </tbody>
     </table>

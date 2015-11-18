@@ -23,8 +23,15 @@ todoApp.controller('TodoCtrl', function ($scope,$http) {
     })
   }
 
-  $scope.updateDone = function (todo){
-    $http.put('api/todo/'+todo.id+'/done', todo.done)
+  $scope.updateDone = function (todo) {
+    $http.put('/api/todo/'+todo.id+'/done', todo.done)
+  }
+
+  $scope.remove = function (remove) {
+    $http.delete('/api/todo/'+remove.id).then(function successCallback() {
+       var index = $scope.todos.indexOf(remove)
+       $scope.todos.splice(index, 1)
+    })
   }
 
 });

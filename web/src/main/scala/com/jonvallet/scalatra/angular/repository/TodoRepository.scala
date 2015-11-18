@@ -33,6 +33,13 @@ class TodoRepository(ctx : DatabaseContext) {
       .where(TODO.ID === id)
       .execute
   }
+
+  def delete(id: Int) = {
+    ctx.create
+      .delete(TODO)
+      .where(TODO.ID === id)
+      .execute
+  }
 }
 
 case class Todo (id: Integer, name: String, description: String, done: Boolean)

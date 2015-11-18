@@ -41,4 +41,10 @@ class TodoResource  extends ScalatraServlet with JacksonJsonSupport {
     ctx.commit
     Ok()
   }
+
+  delete("/:id") {
+    repository.delete(params("id").toInt)
+    ctx.commit
+    Ok()
+  }
 }
