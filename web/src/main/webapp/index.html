@@ -41,7 +41,7 @@
             <th>{{todo.id}}</th>
             <th>{{todo.name}}</th>
             <th>{{todo.description}}</th>
-            <th><input type="checkbox" ng-model="todo.done"></th>
+            <th><input type="checkbox" ng-model="todo.done" ng-change="updateDone(todo)"></th>
         </tr>
         </tbody>
     </table>

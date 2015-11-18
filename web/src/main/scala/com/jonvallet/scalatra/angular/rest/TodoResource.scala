@@ -33,4 +33,12 @@ class TodoResource  extends ScalatraServlet with JacksonJsonSupport {
 
     Ok(record)
   }
+
+  put("/:id/done") {
+    val done = parsedBody.extract[Boolean]
+    val id = params("id").toInt
+    repository.updateDone(id, done)
+    ctx.commit
+    Ok()
+  }
 }

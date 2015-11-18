@@ -4,7 +4,7 @@ todoApp.controller('TodoCtrl', function ($scope,$http) {
 
   $scope.todos = []
   $scope.newTodo = {}
-  $scope.new = function(todo) {
+  $scope.new = function() {
     var newItem = {
       "name":$scope.newTodo.name,
       "description":$scope.newTodo.description,
@@ -21,6 +21,10 @@ todoApp.controller('TodoCtrl', function ($scope,$http) {
     $http.post('/api/todo', todo).then(function successCallback(response) {
       $scope.todos.push(response.data)
     })
+  }
+
+  $scope.updateDone = function (todo){
+    $http.put('api/todo/'+todo.id+'/done', todo.done)
   }
 
 });
