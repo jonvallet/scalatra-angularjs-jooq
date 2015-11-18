@@ -12,10 +12,12 @@ import org.jooq.scala.Conversions._
  */
 class TodoRepository(ctx : DatabaseContext) {
 
-  val javaDao: TodoJavaDao = new TodoJavaDao(ctx)
-
   def list() : List[Todo] = {
-    javaDao.getAll.toList
+    ctx.create
+      .select()
+      .from(TODO)
+      .fetchInto(classOf[Todo])
+      .toList
   }
 
   def create(todo: TodoCreate): Todo = {
@@ -25,9 +27,11 @@ class TodoRepository(ctx : DatabaseContext) {
   }
 
   def updateDone(id: Int, done: Boolean) = {
-    //FIXME set does not work well with scala.
-    //ctx.create.update(TODO).set(TODO.DONE, done).where(TODO.ID.eq(id))
-    javaDao.updateDone(id, done);
+    ctx.create
+      .update(TODO)
+      .set[java.lang.Boolean](TODO.DONE, done) //Have to set the Boolean java type, so the implicitn conversion works
+      .where(TODO.ID === id)
+      .execute
   }
 }
 
