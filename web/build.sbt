@@ -1,6 +1,7 @@
 Seq(jooqSettings:_*)
 
 libraryDependencies += "com.h2database" % "h2" % "1.4.190"
+libraryDependencies += "com.mchange" % "c3p0" % "0.9.5.1"
 
 val jdbcUrl = "jdbc:h2:~/test"
 val user = "sa"

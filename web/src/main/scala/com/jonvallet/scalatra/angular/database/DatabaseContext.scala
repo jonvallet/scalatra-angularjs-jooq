@@ -3,30 +3,16 @@ package com.jonvallet.scalatra.angular.database
 import java.sql.{DriverManager, Connection}
 import java.util.Properties
 
+import com.mchange.v2.c3p0.ComboPooledDataSource
 import org.jooq.{DSLContext, SQLDialect}
 import org.jooq.impl.DSL
 
 /**
  * Created by jon on 13/11/15.
  */
-class DatabaseContext(conn: Connection, props: Properties, dialect: SQLDialect ) {
-  val dsl = DSL.using(conn, dialect)
-  def create = dsl
-  def commit = conn.commit()
-  def rollback = conn.rollback()
+class DatabaseContext(connection: Connection, dialect: SQLDialect) {
+  def create = DSL.using(connection, dialect)
+  def commit = connection.commit()
+  def rollback = connection.rollback()
 }
 
-object DatabaseContext {
-  def apply() = {
-    val jdbcUrl = "jdbc:h2:~/test"
-    val props = new Properties()
-    props.put("user", "sa")
-    props.put("password", "")
-    val connection = DriverManager.getConnection(jdbcUrl, props)
-    connection.setAutoCommit(false)
-    val dialect = SQLDialect.H2
-    val dsl = DSL.using(connection, dialect)
-    
-    new DatabaseContext(connection, props, SQLDialect.H2)
-  }
-}
