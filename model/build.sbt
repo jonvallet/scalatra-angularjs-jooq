@@ -1,4 +1,4 @@
-seq(flywaySettings: _*)
+Seq(flywaySettings: _*)
 
 val jdbcUrl = "jdbc:h2:~/test"
 val user = "sa"
