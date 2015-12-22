@@ -7,17 +7,7 @@ val Version = "0.1.0-SNAPSHOT"
 val ScalaVersion = "2.11.7"
 val ScalatraVersion = "2.4.0"
 
-lazy val model = project.
-  settings(
-    scalaVersion := ScalaVersion,
-    libraryDependencies ++= Seq(
-      "org.jooq" % "jooq-codegen" % "3.3.1",
-      "com.h2database" % "h2" % "1.4.190"
-    )
-  )
-
-lazy val web = project
-  .dependsOn(model)
+lazy val root = (project in file("."))
   .settings(
     ScalatraPlugin.scalatraSettings ++ Seq(
       organization := Organization,
@@ -39,8 +29,18 @@ lazy val web = project
         "org.jooq" % "jooq" % "3.7.1",
         "org.jooq" % "jooq-meta" % "3.7.1",
         "org.jooq" % "jooq-codegen" % "3.7.1",
-        "org.jooq" % "jooq-scala" % "3.7.1"
+        "org.jooq" % "jooq-scala" % "3.7.1",
+        "com.h2database" % "h2" % "1.4.190",
+        "com.mchange" % "c3p0" % "0.9.5.1"
       )
     )
   )
 
+Seq(flywaySettings: _*)
+
+val jdbcUrl = "jdbc:h2:~/test"
+val user = "sa"
+val password = ""
+
+flywayUrl := jdbcUrl
+flywayUser := "sa"
