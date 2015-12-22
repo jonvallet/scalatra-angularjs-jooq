@@ -26,10 +26,10 @@ public class Tables {
 	/**
 	 * The table PUBLIC.schema_version
 	 */
-	public static final SchemaVersion SCHEMA_VERSION = SchemaVersion.SCHEMA_VERSION;
+	public static final SchemaVersion SCHEMA_VERSION = com.jonvallet.scalatra.angular.database.generated.tables.SchemaVersion.SCHEMA_VERSION;
 
 	/**
 	 * The table PUBLIC.TODO
 	 */
-	public static final Todo TODO = Todo.TODO;
+	public static final Todo TODO = com.jonvallet.scalatra.angular.database.generated.tables.Todo.TODO;
 }

@@ -8,6 +8,7 @@ import com.jonvallet.scalatra.angular.database.generated.Keys;
 import com.jonvallet.scalatra.angular.database.generated.Public;
 import com.jonvallet.scalatra.angular.database.generated.tables.records.TodoRecord;
 
+import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,7 +35,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Todo extends TableImpl<TodoRecord> {
 
-	private static final long serialVersionUID = -491135109;
+	private static final long serialVersionUID = -1500013372;
 
 	/**
 	 * The reference instance of <code>PUBLIC.TODO</code>
@@ -68,6 +69,11 @@ public class Todo extends TableImpl<TodoRecord> {
 	 * The column <code>PUBLIC.TODO.DONE</code>.
 	 */
 	public final TableField<TodoRecord, Boolean> DONE = createField("DONE", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
+
+	/**
+	 * The column <code>PUBLIC.TODO.TIMESTAMP</code>.
+	 */
+	public final TableField<TodoRecord, Timestamp> TIMESTAMP = createField("TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP, this, "");
 
 	/**
 	 * Create a <code>PUBLIC.TODO</code> table reference
