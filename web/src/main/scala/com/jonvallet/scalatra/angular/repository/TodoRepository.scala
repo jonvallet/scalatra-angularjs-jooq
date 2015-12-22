@@ -29,7 +29,7 @@ class TodoRepository(ctx : DatabaseContext) {
   def updateDone(id: Int, done: Boolean) = {
     ctx.create
       .update(TODO)
-      .set[java.lang.Boolean](TODO.DONE, done) //Have to set the Boolean java type, so the implicitn conversion works
+      .set[java.lang.Boolean](TODO.DONE, done) //Have to set the Boolean java type, so the implicit conversion works
       .where(TODO.ID === id)
       .execute
   }
