@@ -88,7 +88,7 @@
             <packageName>com.jonvallet.scalatra.angular.database.generated</packageName>
 
             <!-- The destination directory of your generated classes -->
-            <directory>src/main/java/</directory>
+            <directory>../src/main/java/</directory>
         </target>
     </generator>
 </configuration>
