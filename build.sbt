@@ -20,7 +20,7 @@ lazy val root = (project in file("."))
         "org.scalatra" %% "scalatra" % ScalatraVersion,
         "org.scalatra" %% "scalatra-specs2" % ScalatraVersion % "test",
         "ch.qos.logback" % "logback-classic" % "1.1.2",
-        "org.eclipse.jetty" % "jetty-webapp" % "9.2.10.v20150310" % "compile;container",
+        "org.eclipse.jetty" % "jetty-webapp" % "9.2.10.v20150310" % "container",
         "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided",
         "org.scalatra" %% "scalatra-json" % ScalatraVersion,
         "org.json4s" %% "json4s-jackson" % "3.3.0",
@@ -34,7 +34,7 @@ lazy val root = (project in file("."))
         "com.mchange" % "c3p0" % "0.9.5.1"
       )
     )
-  ).enablePlugins(JavaAppPackaging)
+  )
 
 Seq(flywaySettings: _*)
 
