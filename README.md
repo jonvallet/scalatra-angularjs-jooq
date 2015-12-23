@@ -24,9 +24,9 @@ $ ./sbt
 
 If `browse` doesn't launch your browser, manually open [http://localhost:8080/](http://localhost:8080/) in your browser.
 
-If you modify the database, you can regenerate the helper classes running this command while in a sbt session
+If you modify the database, you can regenerate the helper classes running this command
 
 ```sh
-$ ./sbt
-> runMain org.jooq.util.GenerationTool jooq-config.xml
+$ cd codegen
+$ bash generate-code.sh
 ```

@@ -28,7 +28,6 @@ lazy val root = (project in file("."))
         "org.webjars" % "bootstrap" % "3.3.5",
         "org.jooq" % "jooq" % "3.7.1",
         "org.jooq" % "jooq-meta" % "3.7.1",
-        "org.jooq" % "jooq-codegen" % "3.7.1",
         "org.jooq" % "jooq-scala" % "3.7.1",
         "com.h2database" % "h2" % "1.4.190",
         "com.mchange" % "c3p0" % "0.9.5.1"
