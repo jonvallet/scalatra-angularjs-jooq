@@ -24,3 +24,10 @@ If you modify the database, you can regenerate the helper classes running this c
 $ cd codegen
 $ bash generate-code.sh
 ```
+## Standalone
+You can ran the application as a Standalone java process
+
+```
+$./sbt assembly
+$java -jar target/scala-2.11/**-assembly-**.jar
+```
