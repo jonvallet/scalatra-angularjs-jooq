@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/jonvallet/scalatra-angularjs-jooq.svg?branch=master)](https://travis-ci.org/jonvallet/scalatra-angularjs-jooq)
+
+[demo page](https://scalatra-angular-jooq.herokuapp.com)
 # Scalatra Angular Web App #
 This is a sample project that uses scalatra as the backend for an angularjs
 frontend web application.
