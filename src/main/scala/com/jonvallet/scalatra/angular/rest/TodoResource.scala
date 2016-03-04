@@ -31,7 +31,7 @@ class TodoResource(ctx: DatabaseContext)  extends ScalatraServlet with JacksonJs
     val todo = parsedBody.extract[TodoCreate]
     val result = ctx.execute(todo, repository.create)
     result match {
-      case Success(record) => Ok(record.id)
+      case Success(record) => Ok(record)
       case Failure(ex) => InternalServerError(ex)
     }
   }
@@ -55,7 +55,7 @@ class TodoResource(ctx: DatabaseContext)  extends ScalatraServlet with JacksonJs
     val result = ctx.execute(params("id").toInt, repository.delete)
 
     result match {
-      case Success(id) => Ok(id)
+      case Success(id) => Ok()
       case Failure(ex) => InternalServerError(ex)
     }
   }

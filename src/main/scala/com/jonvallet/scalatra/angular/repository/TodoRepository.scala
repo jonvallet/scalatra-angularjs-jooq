@@ -6,6 +6,7 @@ import com.jonvallet.scalatra.angular.database.generated.tables.Todo._
 
 import scala.collection.JavaConversions._
 import org.jooq.scala.Conversions._
+import java.util.Date
 
 /**
  * Created by jon on 13/11/15.
@@ -23,7 +24,7 @@ class TodoRepository(ctx : DatabaseContext) {
   def create(todo: TodoCreate): Todo = {
     val newRecord = ctx.create.newRecord(TODO, todo)
     newRecord.store()
-    Todo(newRecord.getId, newRecord.getName, newRecord.getDescription, newRecord.getDone)
+    Todo(newRecord.getId, newRecord.getName, newRecord.getDescription, newRecord.getDone, new Date)
   }
 
   def updateDone(update: (Int, Boolean)) = {
@@ -42,5 +43,5 @@ class TodoRepository(ctx : DatabaseContext) {
   }
 }
 
-case class Todo (id: Integer, name: String, description: String, done: Boolean)
+case class Todo (id: Integer, name: String, description: String, done: Boolean, timestamp: Date)
 case class TodoCreate(name: String, description: String, done: Boolean)
