@@ -26,11 +26,11 @@ class TodoRepository(ctx : DatabaseContext) {
     Todo(newRecord.getId, newRecord.getName, newRecord.getDescription, newRecord.getDone)
   }
 
-  def updateDone(id: Int, done: Boolean) = {
+  def updateDone(update: (Int, Boolean)) = {
     ctx.create
       .update(TODO)
-      .set[java.lang.Boolean](TODO.DONE, done) //Have to set the Boolean java type, so the implicit conversion works
-      .where(TODO.ID === id)
+      .set[java.lang.Boolean](TODO.DONE, update._2) //Have to set the Boolean java type, so the implicit conversion works
+      .where(TODO.ID === update._1)
       .execute
   }
 
