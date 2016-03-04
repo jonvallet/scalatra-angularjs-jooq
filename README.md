@@ -9,12 +9,6 @@ First, cd to the root of the project
 $ cd scalatra-angularjs-jooq
 ```
 
-If this your first time, you will need to create the database schema first.
-
-```sh
-$ ./sbt flywayMigrate
-```
-
 Now, start the server container
 ```sh
 $ ./sbt

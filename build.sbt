@@ -30,16 +30,9 @@ lazy val root = (project in file("."))
         "org.jooq" % "jooq-meta" % "3.7.1",
         "org.jooq" % "jooq-scala" % "3.7.1",
         "com.h2database" % "h2" % "1.4.190",
-        "com.mchange" % "c3p0" % "0.9.5.1"
+        "com.mchange" % "c3p0" % "0.9.5.1",
+        "org.flywaydb" % "flyway-core" % "4.0"
       )
     )
   )
 
-Seq(flywaySettings: _*)
-
-val jdbcUrl = "jdbc:h2:~/test"
-val user = "sa"
-val password = ""
-
-flywayUrl := jdbcUrl
-flywayUser := "sa"

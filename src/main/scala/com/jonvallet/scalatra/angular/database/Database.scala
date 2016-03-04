@@ -2,6 +2,7 @@ package com.jonvallet.scalatra.angular.database
 
 import java.sql.{SQLException, Connection, DriverManager}
 import java.util.Properties
+import org.flywaydb.core.Flyway
 import org.jooq.SQLDialect
 import org.jooq.impl.DSL
 
