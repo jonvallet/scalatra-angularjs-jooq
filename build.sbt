@@ -33,3 +33,8 @@ lazy val root = (project in file("."))
     )
   )
 
+val stage = taskKey[Unit]("Stage task")
+
+stage := {
+  (assembly in Compile).value
+}
